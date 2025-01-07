@@ -53,7 +53,20 @@ const main = async () => {
   );
   const aiConfig = config.ai;
   process.env.OPENAI_API_KEY = aiConfig.apiKey;
+
   const [, , action, ...args] = process.argv;
+
+  if (!action) {
+    console.error('No action provided.');
+    // list all actions available
+    console.log(
+      'Available actions:\n' +
+        Object.keys(config.actions)
+          .map((action) => `  - ${action}`)
+          .join('\n')
+    );
+    return;
+  }
   const commands = await executeAction(config, action, args);
   if (!commands || commands.length === 0) {
     console.error('No command to execute found.');
