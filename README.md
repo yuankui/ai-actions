@@ -4,10 +4,10 @@ AI Actions CLI is a command-line tool that allows you to execute AI-driven actio
 
 ## Installation
 
-To install dependencies, use [Bun](https://bun.sh):
+To install the package globally, run:
 
 ```bash
-bun install
+npm install -g @yuankui/ai-actions
 ```
 
 ## Configuration
@@ -33,7 +33,7 @@ Replace `YOUR_OPENAI_API_KEY` with your actual OpenAI API key.
 To run the CLI, use the following command:
 
 ```bash
-bun run index.ts <action> [args...]
+ai <action> [args...]
 ```
 
 - `<action>`: The name of the action defined in your configuration file.
@@ -42,7 +42,7 @@ bun run index.ts <action> [args...]
 ### Example
 
 ```bash
-bun run index.ts exampleAction
+ai exampleAction
 ```
 
 This will execute the `exampleAction` defined in your configuration file.
