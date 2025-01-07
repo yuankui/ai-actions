@@ -1,0 +1,17 @@
+ai:
+  apiKey: your-openai-api-key
+actions:
+  linear:
+    type: shell
+    config:
+      prompt: >-
+        echo "generate a branch name in this format: tom/{yyyymmdd today}-{linear-id}-{short-description},
+              and generate a shell command to fork the current git branch and name the branch as the
+              previously generated branch name.
+
+              based on the info below:
+              - url: {{args}}
+              - Current time is: $(date)
+
+              example output: git checkout -b tom/20210906-ACT-926-profile-video"
+      output: A JSON Array of strings, each string is a single line executable shell command in a simple text format(no other texts, no markdown)

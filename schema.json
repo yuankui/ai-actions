@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "actions": {
+      "$ref": "#/definitions/Record<string,ShellActionConfig>"
+    },
+    "ai": {
+      "type": "object",
+      "properties": {
+        "apiKey": {
+          "type": "string"
+        }
+      },
+      "required": ["apiKey"]
+    }
+  },
+  "required": ["actions", "ai"],
+  "definitions": {
+    "Record<string,ShellActionConfig>": {
+      "type": "object"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
