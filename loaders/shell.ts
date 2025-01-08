@@ -23,11 +23,15 @@ export const ShellLoader: ActionHandler = async (context: ActionContext) => {
       // execute ai api
       const prompt = `${stdout}\n output format: ${context.config.config.output}`;
       const response = await context.aiApi.prompt(prompt);
+      // Handle markdown response by extracting code blocks if present
+      const cleanResponse = response
+        .replace(/^```[\s\S]*?\n([\s\S]*?)```$/gm, '$1')
+        .trim();
 
       try {
-        return JSON.parse(response);
+        return JSON.parse(cleanResponse);
       } catch (error) {
-        return [response];
+        return [cleanResponse];
       }
     }
   } catch (error: any) {
